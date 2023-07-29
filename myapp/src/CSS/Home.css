@@ -1,0 +1,216 @@
+/* Home.css */
+
+/* Set background properties for the Home component */
+.Home {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  padding: 20px;
+  background-image: url('../images/background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.CalendarWrapper {
+  position: relative; /* Set the wrapper as a reference for absolute positioning */
+}
+
+.AnimationEffect {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: 8px;
+  pointer-events: none; /* Ensure the animation element doesn't interfere with clicks */
+  animation: mixedColorMotion 5s infinite linear; /* Adjust the duration as needed */
+}
+
+.CalendarContainer {
+  background-color: rgba(255, 255, 255, 0.8); /* Set a transparent white background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+  padding: 20px;
+  position: relative; /* Ensure that the 3D effect is positioned relative to this container */
+}
+
+.CalendarContainer h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Customize the appearance of the calendar */
+.CustomCalendar {
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border: none;
+}
+
+.react-calendar__navigation {
+  background-color: #f0f0f0; /* Set background color for calendar header and toggle bar */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px; /* Increase the padding to make the toggle bar bigger */
+  border-radius: 8px; /* Rounded corners for the toggle bar */
+  transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+/* Style the navigation buttons (arrows) */
+.react-calendar__navigation button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px; /* Increase the font size of the arrows */
+  color: #333; /* Set text color for the buttons */
+  padding: 0 10px; /* Add padding around the arrows to make them more spacious */
+  display: flex;
+  align-items: center;
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #e0e0e0; /* Darken the background color on hover */
+  padding: 5px;
+}
+
+.react-calendar__navigation button:active {
+  background-color: #d0d0d0; /* Darken the background color when clicked */
+  padding: 5px;
+}
+
+.react-calendar__navigation .react-calendar__navigation__label {
+  /* Style the month and year label */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days {
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0 -1px;
+}
+
+.react-calendar__tile {
+  flex: 1;
+  max-width: calc(100% / 7);
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #333; /* Set default color for calendar dates */
+}
+
+/* Add this style to change the background color of weekends */
+.react-calendar__month-view__days .react-calendar__tile--weekend {
+  background-color: red;
+}
+
+/* Remove the default blue color for selected date */
+.react-calendar__tile--active {
+  background-color: transparent;
+}
+
+/* Add this style to add a 3D effect for the current date (time) */
+.react-calendar__tile--now {
+  font-weight: bold;
+  color: #333; /* Set text color for the current date */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Add 3D effect with box shadow */
+}
+
+/* Customize the appearance of the calendar days */
+.calendar-day {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Customize the appearance of the calendar months */
+.calendar-month-0 {
+  background: #673ab7; /* January */
+}
+
+.calendar-month-1 {
+  background: #009688; /* February */
+}
+
+.calendar-month-2 {
+  background: #f44336; /* March */
+}
+
+.calendar-month-3 {
+  background: #2196f3; /* April */
+}
+
+.calendar-month-4 {
+  background: #ffeb3b; /* May */
+}
+
+.calendar-month-5 {
+  background: #795548; /* June */
+}
+
+.calendar-month-6 {
+  background: #00bcd4; /* July */
+}
+
+.calendar-month-7 {
+  background: #4caf50; /* August */
+}
+
+.calendar-month-8 {
+  background: #ff9800; /* September */
+}
+
+.calendar-month-9 {
+  background: #9c27b0; /* October */
+}
+
+.calendar-month-10 {
+  background: #e91e63; /* November */
+}
+
+.calendar-month-11 {
+  background: #607d8b; /* December */
+}
+
+.ContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ContentContainer h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.ContentContainer p {
+  font-size: 16px;
+}
+
+.CalendarInfo {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+  color: #333;
+}
+
+.CurrentTime {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
