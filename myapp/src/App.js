@@ -5,6 +5,8 @@ import MainComponent from './main';
 import DetailsPage from './DetailsPage';
 import './App.css';
 
+
+
 const App = () => {
   return (
     <Router>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 
+
 const MainComponent = () => {
   const containerStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -13,6 +14,7 @@ const MainComponent = () => {
     width: '100%',
     height: '600px',
   };
+  
 
   const [textInput, setTextInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -30,35 +32,33 @@ const MainComponent = () => {
   const handleSearch = async () => {
     try {
       // Perform the API call here with the selected institution and filter
-      const response = await fetch(
-        `http://localhost:8089/users/${textInput}`
-      );
-
+      const response = await fetch(`http://localhost:8089/users/${textInput}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
       const data = await response.json();
-
-      // Check if data is an array (multiple results) or an object (single result)
-      if (Array.isArray(data)) {
-        if (data.length === 0) {
-          // When no users are available, set the noUsersAvailable state to true
-          setNoUsersAvailable(true);
-          setSearchResults([]); // Clear the search results
-          return;
-        }
-        setNoUsersAvailable(false);
-        setSearchResults(data); // Store the array of results in the state
+  
+      // Check if the response contains "message" key with value "No users available"
+      if (data.message === 'No users available') {
+        setNoUsersAvailable(true);
+        setSearchResults([]); // Clear the search results
       } else {
+        // Users found
         setNoUsersAvailable(false);
-        setSearchResults([data]); // Convert the single result to an array and store in the state
+        // Check if data is an array (multiple results) or an object (single result)
+        if (Array.isArray(data)) {
+          setSearchResults(data); // Store the array of results in the state
+        } else {
+          setSearchResults([data]); // Convert the single result to an array and store in the state
+        }
       }
     } catch (error) {
       console.error('Error fetching data:', error);
       // Handle any error scenarios if needed
     }
   };
+  
+  
 
   // Fetch institutions data from the API
   useEffect(() => {
@@ -140,14 +140,14 @@ const MainComponent = () => {
 
         <button onClick={handleSearch} className="whatever">Search</button> <button>Create</button>
       </div>
-      {/* Display the search results as a table or "No users available" */}
-      {noUsersAvailable ? (
-        <div>
-          <p>No users available</p>
-        </div>
-      ) : searchResults.length > 0 ? (
-        <div className="table-container">
-          <h2>Search Results:</h2>
+    {/* Display the search results as a table or "No users available" */}
+{noUsersAvailable ? (
+  <div>
+    <p>No users available</p>
+  </div>
+) : searchResults.length > 0 ? (
+  <div className='table-container'>
+    <h2>Search Results:</h2>
           <div className="table-wrapper">
           <table>
             <thead>
