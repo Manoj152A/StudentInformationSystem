@@ -8,6 +8,8 @@ import Home from "./Components/Home"; // Update the import path for the Home com
 import Forms from "./Components/Forms"; // Update the import path for the Forms component
 import ControlPanel from "./Components/ControlPanel"; // Update the import path for the ControlPanel component
 import StudentDetails from "./Components/StudentDetails";
+import UserManagement from "./Components/UserManagement";
+import DetailsPage from "./Components/DetailsPage";
 // Rest of the component code remains the same
 
 ReactDOM.render(
@@ -20,6 +22,8 @@ ReactDOM.render(
           <Route path="forms" element={<Forms />} />
           <Route path="controlpanel" element={<ControlPanel />} />
           <Route path="studentdetails" element={<StudentDetails />} />
+          <Route path="management/users" element={<UserManagement/>} />
+          <Route path="/details/:detailsId" element={<DetailsPage />} />
 
         </Route>
       </Routes>
