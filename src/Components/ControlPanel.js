@@ -86,9 +86,9 @@ function ControlPanel() {
           
           <div
   className='tab'
-  style={{ ...tabStylesCommon, ...(location.pathname === '/studentdetails' && tabStylesHover) }}
+  style={{ ...tabStylesCommon, ...(location.pathname === '/StudentDetails' && tabStylesHover) }}
 >
-  <Link to='/homepage/studentdetails' className='tabLink'>
+  <Link to='/HomePage/StudentDetails' className='tabLink'>
     <div className='tabTitle' style={tabTitleStyles}>
       Student Details
     </div>

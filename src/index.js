@@ -9,6 +9,7 @@ import Forms from "./Components/Forms"; // Update the import path for the Forms 
 import ControlPanel from "./Components/ControlPanel"; // Update the import path for the ControlPanel component
 import ForgotPassword from "./Components/ForgotPassword"; // Import the ForgotPassword component
 import ResetPassword from "./Components/ResetPassword"; // Import the ResetPassword component
+import StudentDetails from "./Components/StudentDetails";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,9 +20,11 @@ ReactDOM.render(
           <Route index element={<Home />} />
           <Route path="forms" element={<Forms />} />
           <Route path="controlpanel" element={<ControlPanel />} />
+          <Route path="StudentDetails" element={<StudentDetails/>}/>
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        
       </Routes>
     </Router>
   </React.StrictMode>,
