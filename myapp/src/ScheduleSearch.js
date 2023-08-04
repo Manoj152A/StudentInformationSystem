@@ -1,7 +1,6 @@
 // ScheduleSearch.js
 import React, { useState } from 'react';
-
-import backgroundImage from './img4.jpg';
+import videoBackground from './istockphoto-1366783063-640_adpp_is.mp4';
 
 
 function ScheduleSearch() {
@@ -11,13 +10,21 @@ function ScheduleSearch() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const containerStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    /* Add any other styles you want for the container */
+    position: 'relative',
     width: '100%',
-    height: '600px',
+    height: '100vh', // Adjust this value as needed
+    overflow: 'hidden',
   };
+
+  const videoStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    zIndex: -100,
+  }
 
   const academicYearOptions = [
     '2020-2021',
@@ -54,6 +61,10 @@ function ScheduleSearch() {
 
     
     <div style={containerStyle}>
+      <video autoPlay loop muted style={videoStyle}>
+        <source src={videoBackground} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
         <main style={{ color: '#8B0000' }}>
    <h1 style={{ textAlign: 'center', marginTop: '0.1px', fontSize: '28px', fontFamily: 'Source Sans Pro', fontWeight: 'bold' }}>Schedule Search</h1>
 
@@ -116,6 +127,7 @@ function ScheduleSearch() {
 
       {/* Display Search Results as Table */}
       <h4>Search Results:</h4>
+      {searchResults.length > 0 && ( // Only render the table if there are search results
       <table style={{ width: '80%', border: '0.8px solid darkmagenta', borderCollapse: 'collapse', marginLeft: '120px',marginTop: '80px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)'}}>
         <thead>
           <tr>
@@ -156,6 +168,7 @@ function ScheduleSearch() {
           ))}
         </tbody>
       </table>
+      )}
       </main>
     </div>
   );

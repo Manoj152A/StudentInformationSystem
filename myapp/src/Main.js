@@ -12,6 +12,9 @@ function Main() {
         <Link to="/schedule-search">
           <button>Schedule Search</button>
         </Link>
+        <Link to="/Enrollment">
+          <button>Student Enrollment</button>
+        </Link>
       </div>
       {/* ... other steps ... */}
     </main>

@@ -4,8 +4,13 @@ import videoBackground from './istockphoto-1366783063-640_adpp_is.mp4';
 import { Link } from 'react-router-dom';
 
 
-function StudentDetails() {
-  
+function Enrollment() {
+  const containerStyle = {
+    position: 'relative',
+    width: '100%',
+    height: '100vh', // Adjust this value as needed
+    overflow: 'hidden',
+  };
 
   const videoStyle = {
     position: 'absolute',
@@ -44,22 +49,25 @@ function StudentDetails() {
       });
   }, []);
 
-  const handleSearch = () => {
-    // Perform API call here using the selectedInstitution, selectedFilter, and searchText values
-    // You can use fetch or axios to make the API call
+  // ... (previous code)
 
-    // Create the URL with query parameters based on the selected values
-    const searchUrl = new URL('http://localhost:8086/students/search');
-    searchUrl.searchParams.append('institutionName', selectedInstitution);
-
-    // Append the filter parameter only when a filter other than the default value is selected
-    if (selectedFilter !== "" && searchText.trim() !== "") {
-      // Use selectedFilter as the parameter name and searchText as the parameter value
-      searchUrl.searchParams.append(selectedFilter, searchText);
+const handleSearch = () => {
+    // ... (previous code)
+  
+    // Declare apiEndpoint variable
+    let apiEndpoint = '';
+  
+    // Determine the appropriate API endpoint based on the selected filter
+    if (selectedFilter === 'studentId') {
+      apiEndpoint = `http://localhost:8083/api/v1/students/${searchText}`;
+    } else if (selectedFilter === 'username') {
+      apiEndpoint = `http://localhost:8083/api/v1/students/userName`;
+    } else if (selectedFilter === 'email') {
+      apiEndpoint = `http://localhost:8083/api/v1/students/email`;
     }
-
+  
     // Make the API call for search using fetch
-    fetch(searchUrl)
+    fetch(apiEndpoint)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -67,33 +75,32 @@ function StudentDetails() {
         return response.json();
       })
       .then((data) => {
+        console.log('API Response Data:', data);
         if (data.message) {
-          // If the API response contains a message, there is no data in the database
-          setApiError(data.message);
-          setSearchResults([]);
+          // ...
         } else {
-          // If the API response does not contain a message, update the search results
-          setSearchResults(data);
+          setSearchResults(data); // Update this line to set the student data directly
           setApiError('');
         }
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
-        // Handle any error conditions, e.g., show an error message to the user
         setApiError('No data found for the given inputs or invalid input');
-        setSearchResults([]);
+        setSearchResults(null); // Set searchResults to null in case of error
       });
   };
-
+  
+  // ... (rest of the code)
+  
   return (
-    <div>
+    <div style={containerStyle}>
          <video autoPlay loop muted style={videoStyle}>
         <source src={videoBackground} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <main style={{ color: '#8B0000' }}>
-        <h3 style={{ textAlign: 'center', marginTop: '0.1px' }}>Student Details</h3>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <h3 style={{ textAlign: 'center', marginTop: '0.1px' }}>Enrollment Details</h3>
+        <div style={{ display: 'flex', marginLeft: '280px' }}>
           {/* Institutions Dropdown */}
           <label htmlFor="institutionName">Select Institution:</label>
           <select
@@ -131,8 +138,8 @@ function StudentDetails() {
             }}
           > 
             <option value="">Select a filter</option>
-            <option style ={{ fontFamily: 'Roboto, sans-serif',fontWeight: 'bold'}} value="email">Email</option>
-            <option style ={{ fontFamily: 'Roboto, sans-serif',fontWeight: 'bold'}} value="studentId">Student ID</option>
+           <option style ={{ fontFamily: 'Roboto, sans-serif',fontWeight: 'bold'}} value="studentId">Student ID</option>
+           <option style ={{ fontFamily: 'Roboto, sans-serif',fontWeight: 'bold'}} value="email">Email</option>
             <option style ={{ fontFamily: 'Roboto, sans-serif',fontWeight: 'bold'}} value="username">username</option>
           </select>
 
@@ -172,64 +179,51 @@ function StudentDetails() {
             e.target.style.transform = 'scale(1)';
           }}>Create</button>
           </Link>
-          </div>
-        
+
+        </div>
         
 
         {/* Display API Results */}
-        <h4>Search Results:</h4>
-        {searchResults.length > 0 && ( // Only render the table if there are search results
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-          <table style={{ width: '80%', border: '0.8px solid darkmagenta', borderCollapse: 'collapse',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}>
-            <thead>
-              <tr style={{ height: '40px', backgroundColor: 'transparent', color: 'darkmagenta' }}>
-                <th >Institution Name</th>
-                <th >Name</th>
-                <th >Grade</th>
-                <th >Username</th>
-                <th >Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              {searchResults.map((student, index) => (
-                <tr key={index}>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
-                    {student.institutionName}
-                  </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
-                    {student.studentName}
-                  </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
-                    {student.grade}
-                  </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative' }}>
-                    {student.username}
-                    </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative' }}>
-                    {student.email}
-                    <Link to="/view-more">
-                    <button style={{ position: 'relative', left:'220px',border: '100px', backgroundColor: '#34ff3e', color: '#373e37', borderRadius: '3px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
-                     onClick={handleSearch}
-                     onMouseEnter={(e) => {
-                       e.target.style.transform = 'scale(1.1)';
-                     }}
-                     onMouseLeave={(e) => {
-                       e.target.style.transform = 'scale(1)';
-                     }}>view more</button></Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-         )}
+        <h4>Search Result:</h4>
+        <div style={{ marginTop: '20px', width: '80%' }}>
+            {searchResults.length > 0 && (
+              <table style={{ width: '100%', border: '0.8px solid darkmagenta', borderCollapse: 'collapse', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}>
+                <thead>
+                  <tr>
+                    <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' }}>firstName</th>
+                    <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' }}>lastName</th>
+                    <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' }}>id</th>
+                    <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' }}>username</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {searchResults.map((student, index) => (
+                    <tr key={index}>
+                      <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
+                        {student.firstName}
+                      </td>
+                      <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
+                        {student.lastName}
+                      </td>
+                      <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
+                        {student.id}
+                      </td>
+                      <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative' }}>
+                        {student.userName}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+
         {/* Display API Error Message */}
         <div>
-          {apiError && <p style={{ color: 'red', textAlign: 'center', }}>{apiError}</p>}
+          {apiError && <p style={{ color: 'red', textAlign: 'center' }}>{apiError}</p>}
+        </div>
         </div>
       </main>
     </div>
   );
 }
-
-export default StudentDetails;
+export default Enrollment;
