@@ -9,7 +9,8 @@ import Forms from "./Components/Forms"; // Update the import path for the Forms 
 import ControlPanel from "./Components/ControlPanel"; // Update the import path for the ControlPanel component
 import ForgotPassword from "./Components/ForgotPassword"; // Import the ForgotPassword component
 import ResetPassword from "./Components/ResetPassword"; // Import the ResetPassword component
-
+import StudentDetails from "./Components/StudentDetails";
+import CreateUser from "./Components/CreateUser";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
