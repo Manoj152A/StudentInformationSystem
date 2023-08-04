@@ -102,7 +102,7 @@ function ControlPanel() {
             className='tab'
             style={{ ...tabStylesCommon, ...(location.pathname === '/management/users' && tabStylesHover) }}
           >
-            <Link to='/management/users' className='tabLink'>
+            <Link to='/homepage/management/users' className='tabLink'>
               <div className='tabTitle' style={tabTitleStyles}>
                 User Management
               </div>
