@@ -4,7 +4,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // To use navigation
 import "./StudentEnrollment.css"; // Import the CSS file
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import ParentDetails from "./ParentDetails"; // Import ParentDetails component
 
 const StudentEnrollment = () => {
   const Navigate = useNavigate();
@@ -92,7 +93,9 @@ const StudentEnrollment = () => {
         if (response.status === 200) {
           setStudentId(response.data.studentId); // Assuming the server returns the student ID
           alert("Enrollment is successful");
-          Navigate("/ParentDetails"); // Navigate to the ParentDetails route
+          Navigate("/ParentDetails", {
+            state: { studentId: response.data.studentId },
+          });
         } else {
           alert("Enrollment failed. Please try again later.");
         }
@@ -322,9 +325,6 @@ const StudentEnrollment = () => {
         <button type="submit" className="form-button">
           Save
         </button>
-        {/* <Link to="/ParentDetails">
-        <button>Next</button>
-      </Link> */}
       </form>
     </div>
   );

@@ -1,23 +1,26 @@
 import React from "react";
 import { useFormik } from "formik";
+import { useLocation } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 import "./ParentDetails.css"; // Import the CSS file
 
 const ParentDetails = () => {
+  const location = useLocation(); // Get location state
+  const studentId = location.state ? location.state.studentId : 0;
   const formik = useFormik({
     initialValues: {
-      studentId: 0,
+      studentId: studentId || 0, // Set the initial value of studentId to the one passed as prop or 0 if not present
       fatherName: "",
       motherName: "",
       contactNumber: "",
     },
     validationSchema: Yup.object({
-      studentId: Yup.number()
-        .typeError("Student ID must be a number")
-        .integer("Student ID must be an integer")
-        .min(1, "Student ID must be at least 1")
-        .required("Student ID is required"),
+      // studentId: Yup.number()
+      //   .typeError("Student ID must be a number")
+      //   .integer("Student ID must be an integer")
+      //   .min(1, "Student ID must be at least 1")
+      //   .required("Student ID is required"),
       fatherName: Yup.string().required("Required"),
       motherName: Yup.string().required("Required"),
       contactNumber: Yup.string()
@@ -26,31 +29,20 @@ const ParentDetails = () => {
     }),
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        // Check if the studentId exists in the database
-        const checkStudentResponse = await axios.get(
-          `http://localhost:8087/parents/check-student/${values.studentId}`
+        // If studentId exists, proceed to store parent details
+        const response = await axios.post(
+          `http://localhost:8087/parents/${values.studentId}`,
+          {
+            fatherName: values.fatherName,
+            motherName: values.motherName,
+            contactNumber: values.contactNumber,
+          }
         );
 
-        const studentExists = checkStudentResponse.status === 200;
-
-        if (studentExists) {
-          // If student exists, proceed to store parent details
-          const response = await axios.post(
-            `http://localhost:8087/parents/${values.studentId}`,
-            {
-              fatherName: values.fatherName,
-              motherName: values.motherName,
-              contactNumber: values.contactNumber,
-            }
-          );
-
-          if (response.status === 200) {
-            alert("Parent details added successfully!");
-          } else {
-            alert("Failed to add parent details. Please try again later.");
-          }
+        if (response.status === 200) {
+          alert("Parent details added successfully!");
         } else {
-          alert("Student ID is not available. Please provide a valid ID.");
+          alert("Failed to add parent details. Please try again later.");
         }
       } catch (error) {
         console.error("Error adding parent details:", error);
@@ -76,16 +68,18 @@ const ParentDetails = () => {
         <input
           id="studentId"
           name="studentId"
-          type="number"
+          type="text"
           className="form-input"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.studentId}
+          disabled
         />
         {formik.touched.studentId && formik.errors.studentId ? (
           <div className="error-container">{formik.errors.studentId}</div>
         ) : null}
         <br />
+
         <label htmlFor="fatherName" className="form-label">
           Father Name
         </label>
