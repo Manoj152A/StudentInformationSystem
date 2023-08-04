@@ -8,6 +8,8 @@ import Home from "./Home";
 import ControlPanel from "./ControlPanel";
 import Forms from "./Forms";
 import "../CSS/Homepage.css";
+import UserManagement from "./UserManagement";
+import DetailsPage from "./DetailsPage";
 import StudentDetails from "./StudentDetails";
 
 const Homepage = () => {
@@ -109,6 +111,8 @@ const Homepage = () => {
           <Route path="/" element={<Home />} />
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
+          <Route path="management/users" element={<UserManagement />} />
+          <Route path="/details/:detailsId" element={<DetailsPage />} />
           <Route path="StudentDetails" element={<StudentDetails />} />
         </Routes>
       </div>
