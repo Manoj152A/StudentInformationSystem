@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+import React from 'react'
+
+const ControlPanel = () => {
+  return (
+    <div>ControlPanel</div>
+  )
+}
+
+export default ControlPanel
+=======
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import the useLocation hook
 import Image from './background.jpeg';
@@ -209,3 +220,4 @@ function ControlPanel() {
 }
 
 export default ControlPanel;
+>>>>>>> 77e4112f168d158ae877b8898ed566e66685da29
