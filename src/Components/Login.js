@@ -1,5 +1,3 @@
-// Login.js
-
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -12,13 +10,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // State to handle loading state
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true); // Set loading state while waiting for the API response
+    setIsLoading(true);
 
     try {
       const response = await axios.post("http://localhost:8089/api/login", {
@@ -27,9 +25,7 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        const token = response.data; // Get the JWT token from the response
-
-        // Store the token securely in local storage
+        const token = response.data;
         localStorage.setItem("jwtToken", token);
 
         setLoginMessage("Login successful!");
@@ -47,11 +43,10 @@ const Login = () => {
       }
     }
 
-    setIsLoading(false); // Reset loading state after API response
+    setIsLoading(false);
   };
 
   const handleForgotPassword = () => {
-    // Navigate to the "Forgot Password" page
     navigate("/forgot-password");
   };
 
@@ -95,7 +90,9 @@ const Login = () => {
             {isLoading ? "Logging in..." : "Login"}
           </button>
           {loginMessage && <p className="LoginMessage">{loginMessage}</p>}
-          <p className="CreateUserLink">Create User</p>
+          <p className="CreateUserLink" onClick={() => navigate('/create-user')}>
+            Create User
+          </p>
           <p className="ForgotPasswordLink" onClick={handleForgotPassword}>
             Forgot Password
           </p>

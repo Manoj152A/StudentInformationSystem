@@ -58,6 +58,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  
 }
 
 /* Style the form labels */
@@ -114,6 +115,7 @@ button:hover {
   text-decoration: none;
   display: inline-block;
   transition: transform 0.3s;
+  
 }
 
 /* Add a 3D effect to the links on hover */
@@ -141,3 +143,10 @@ button:hover {
 .EyeIcon:hover {
   transform: translateY(-50%) scale(1.2) rotateY(20deg); /* Increase rotation for smoother effect */
 }
+
+.common-dropdown {
+  width: 100%; /* Set the desired width */
+}
+
+
+

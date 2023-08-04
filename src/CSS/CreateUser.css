@@ -1,0 +1,200 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    
+  }
+  
+  .form-container {
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: hsla(0, 93%, 47%, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the form container horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form content vertically */
+    justify-content: center; /* Center the form content horizontally */
+    min-height: 100vh; /* Ensure the form container fills the entire viewport height */
+  }
+  
+  
+  .form-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2020da; /* Add your desired color here */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #11075be3;
+    width: 300px;
+  }
+
+  .form-group,
+.form-group .PasswordInputWrapper {
+    width: 350px;       /* Set the desired width */
+    min-width: 350px;   /* Ensure a minimum width */
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #4311db;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333333;
+    transition: border-color 0.2s ease;
+    width: 100%;        /* Set width to 100% to fill the .form-group width */
+    box-sizing: border-box;
+}
+
+
+
+    
+
+ 
+  
+  
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #eb1616;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+  }
+  
+  .error-message {
+    font-size: 18px;
+    color: #ff0033;
+    margin-top: 5px;
+    text-align: center;
+  }
+  
+  .success-message {
+    font-size: 18px;
+    color:rgb(38, 26, 4);
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+
+  }
+  
+  .submit-button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  
+  .submit-button:hover {
+    background-color: #4f48cc;
+  }
+  
+  .password-input-container {
+    position: relative;
+  }
+  
+  .password-toggle-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .return-home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #007bff;
+  }
+
+
+
+  .EyeIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  /* Add a smoother 3D effect to the eye icon on hover */
+  .EyeIcon:hover {
+    transform: translateY(-50%) scale(1.2) rotateY(20deg); /* Increase rotation for smoother effect */
+  }
+
+  .PasswordInputWrapper {
+    position: relative;
+  }
+
+
+
+  .form-group {
+    position: relative;
+  }
+  
+  .form-group label {
+    margin-right: 10px;
+  }
+  
+  .PasswordInputWrapper {
+    position: relative;
+  }
+  
+  .PasswordInputWrapper .input-field {
+    padding-right: 50px; /* To make space for the eye icon */
+  }
+  
+  .EyeIcon {
+    position:absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  /* Add a smoother 3D effect to the eye icon on hover */
+  .EyeIcon:hover {
+    transform: translateY(-50%) scale(1.2) rotateY(20deg); /* Increase rotation for a smoother effect */
+  }
+  
+  
+  
+
+  
+
+  
