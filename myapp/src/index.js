@@ -7,7 +7,7 @@ import Homepage from "./Components/HomePage"; // Update the import path for the 
 import Home from "./Components/Home"; // Update the import path for the Home component
 import Forms from "./Components/Forms"; // Update the import path for the Forms component
 import ControlPanel from "./Components/ControlPanel"; // Update the import path for the ControlPanel component
-
+import StudentDetails from "./Components/StudentDetails";
 // Rest of the component code remains the same
 
 ReactDOM.render(
@@ -19,6 +19,8 @@ ReactDOM.render(
           <Route index element={<Home />} />
           <Route path="forms" element={<Forms />} />
           <Route path="controlpanel" element={<ControlPanel />} />
+          <Route path="studentdetails" element={<StudentDetails />} />
+
         </Route>
       </Routes>
     </Router>

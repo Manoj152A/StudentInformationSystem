@@ -83,32 +83,21 @@ function ControlPanel() {
               </div>
             </Link>
           </div>
+          
           <div
-            className='tab'
-            style={{ ...tabStylesCommon, ...(location.pathname === '/details' && tabStylesHover) }}
-          >
-            <Link to='/details' className='tabLink'>
-              <div className='tabTitle' style={tabTitleStyles}>
-                Student Details
-              </div>
-              <div className='description' style={descriptionStyles}>
-                Academic info of student
-              </div>
-            </Link>
-          </div>
-          <div
-            className='tab'
-            style={{ ...tabStylesCommon, ...(location.pathname === '/instutions' && tabStylesHover) }}
-          >
-            <Link to='/instutions' className='tabLink'>
-              <div className='tabTitle' style={tabTitleStyles}>
-                Institutions
-              </div>
-              <div className='description' style={descriptionStyles}>
-                Institutions Details
-              </div>
-            </Link>
-          </div>
+  className='tab'
+  style={{ ...tabStylesCommon, ...(location.pathname === '/studentdetails' && tabStylesHover) }}
+>
+  <Link to='/homepage/studentdetails' className='tabLink'>
+    <div className='tabTitle' style={tabTitleStyles}>
+      Student Details
+    </div>
+    <div className='description' style={descriptionStyles}>
+      Academic info of student
+    </div>
+  </Link>
+</div>
+
           <div
             className='tab'
             style={{ ...tabStylesCommon, ...(location.pathname === '/management/users' && tabStylesHover) }}
@@ -132,6 +121,19 @@ function ControlPanel() {
               </div>
               <div className='description' style={descriptionStyles}>
                 Role Details
+              </div>
+            </Link>
+          </div>
+          <div
+            className='tab'
+            style={{ ...tabStylesCommon, ...(location.pathname === '/management/advisor' && tabStylesHover) }}
+          >
+            <Link to='/institutions' className='tabLink'>
+              <div className='tabTitle' style={tabTitleStyles}>
+                Institutions
+              </div>
+              <div className='description' style={descriptionStyles}>
+                Institution Details
               </div>
             </Link>
           </div>
