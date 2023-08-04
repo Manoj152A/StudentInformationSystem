@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import the useLocation hook
-import Image from './background.jpeg';
+import Image from '../images/background.jpeg';
 
 function ControlPanel() {
  const backgroundStyle = {
@@ -211,3 +211,4 @@ function ControlPanel() {
 }
 
 export default ControlPanel;
+
