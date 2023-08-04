@@ -109,7 +109,7 @@ const Homepage = () => {
           <Route path="/" element={<Home />} />
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
-          <Route path="studentdetails" element={<StudentDetails />} />
+          <Route path="StudentDetails" element={<StudentDetails />} />
         </Routes>
       </div>
     </div>

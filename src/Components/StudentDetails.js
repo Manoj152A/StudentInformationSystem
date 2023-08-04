@@ -1,7 +1,7 @@
 // StudentDetails.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Image from './background.jpeg';
+import Image from '../images/background.jpeg';
 
 function StudentDetails() {
   const backgroundStyle = {
