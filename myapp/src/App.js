@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import MainContent from "./MainContent";
+import Header from "./Header";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [activeTab, setActiveTab] = useState("enrollment");
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+
+  const handleNextTab = (tabName) => {
+    // Logic to update the activeTab to the next tab
+    handleTabClick(tabName);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header style={{ textAlign: "center" }} title="Student Enrollment Form" />
+      <MainContent
+        activeTab={activeTab}
+        handleTabClick={handleTabClick}
+        handleNextTab={handleNextTab}
+      />
     </div>
   );
-}
+};
 
 export default App;

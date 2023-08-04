@@ -1,0 +1,58 @@
+/* ParentDetails Component Styles */
+
+/* Form Container */
+.form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Form Labels */
+  .form-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Form Inputs */
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  /* Form Input Error */
+  .form-input-error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  /* Submit Button */
+  .form-submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  /* Submit Button Hover */
+  .form-submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Container for Error Messages */
+  .error-container {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

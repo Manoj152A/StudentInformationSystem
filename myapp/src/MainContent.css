@@ -1,0 +1,35 @@
+/* mainContent.css */
+
+/* Container style */
+.main-content-container {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* Tabs container style */
+  .tabs-container {
+    flex: 5;
+    padding-right: 30px;
+  }
+  
+  /* Tab button style */
+  .tab-button {
+    display: -webkit-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    background-color: green;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    color: white;
+  }
+  
+  /* Active tab style */
+  .active-tab {
+    background-color: blue;
+  }
+  
