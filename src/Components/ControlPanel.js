@@ -102,7 +102,7 @@ function ControlPanel() {
             className='tab'
             style={{ ...tabStylesCommon, ...(location.pathname === '/management/users' && tabStylesHover) }}
           >
-            <Link to='/management/users' className='tabLink'>
+            <Link to='/homepage/management/users' className='tabLink'>
               <div className='tabTitle' style={tabTitleStyles}>
                 User Management
               </div>
@@ -121,6 +121,19 @@ function ControlPanel() {
               </div>
               <div className='description' style={descriptionStyles}>
                 Role Details
+              </div>
+            </Link>
+          </div>
+          <div
+            className='tab'
+            style={{ ...tabStylesCommon, ...(location.pathname === '/management/advisor' && tabStylesHover) }}
+          >
+            <Link to='/institutions' className='tabLink'>
+              <div className='tabTitle' style={tabTitleStyles}>
+                Institutions
+              </div>
+              <div className='description' style={descriptionStyles}>
+                Institution Details
               </div>
             </Link>
           </div>

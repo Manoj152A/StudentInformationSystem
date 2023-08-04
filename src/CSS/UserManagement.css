@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style for MainComponent */
+  main {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  select,
+  input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the search results table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  th {
+    background-color: #f0f0f0;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Style for the "No users available" message */
+  .no-users {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  
+  /* Style for the DetailsPage */
+  .details-page {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+
+/* Style for the table container when results are available */
+.table-container {
+    margin-top: 20px;
+  }
+  
+  /* Style for the table wrapper */
+  .table-wrapper {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  /* Style for the table */
+  .table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Style for the table header */
+  .table-wrapper th {
+    background-color: #f0f0f0;
+    text-align: left;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Style for the table rows */
+  .table-wrapper td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Style for the table rows on hover */
+  .table-wrapper tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  /* Style for the table cells in the "Details" column */
+  .table-wrapper .details-cell {
+    cursor: pointer;
+  }
+  
+  /* Style for the "No users available" message */
+  .no-users {
+    color: #ff0000;
+    font-weight: bold;
+  }
+
+  .whatever{
+    margin-left: 10px;
+  }
+  .cover{
+    text-align: center;
+    text-shadow: #ff0000;
+    text-decoration: wavy;
+    color:brown;
+  }
+  .nutmeg{
+    background-color: #75b1f1;
+  }
+ /* ... (previously defined styles) */
+
+/* Style for the DetailsPage container */
+
+  
+  /* Style for the DetailsPage heading */
+  .details-heading {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: burlywood;
+  }
+  
+  /* Style for the DetailsPage data items */
+  .details-item {
+    margin-bottom: 10px;
+    color: blueviolet;
+    font-weight: bold;
+    
+  }
+  
+  .details-label {
+    font-weight: bold;
+    font-style: normal;
+    color:rgb(8, 140, 98);
+  }
+  
+  .details-value {
+    color: #333;
+  }
+  
+  /* Style for the "Loading" message */
+  .loading-message {
+    font-weight: bold;
+    color: #777;
+  }
+  
+  /* Style for the "No data available" message */
+  .no-data-message {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  .details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    background-color: #160811;
+  }
+  
+  /* ... (other styles) */

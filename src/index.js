@@ -7,6 +7,9 @@ import Homepage from "./Components/HomePage"; // Update the import path for the 
 import Home from "./Components/Home"; // Update the import path for the Home component
 import Forms from "./Components/Forms"; // Update the import path for the Forms component
 import ControlPanel from "./Components/ControlPanel"; // Update the import path for the ControlPanel component
+import UserManagement from "./Components/UserManagement";
+import DetailsPage from "./Components/DetailsPage";
+// Rest of the component code remains the same
 import ForgotPassword from "./Components/ForgotPassword"; // Import the ForgotPassword component
 import ResetPassword from "./Components/ResetPassword"; // Import the ResetPassword component
 import StudentDetails from "./Components/StudentDetails";
@@ -19,7 +22,8 @@ ReactDOM.render(
         <Route path="/homepage" element={<Homepage />}>
           <Route index element={<Home />} />
           <Route path="forms" element={<Forms />} />
-          <Route path="controlpanel" element={<ControlPanel />} />
+          <Route path="controlpanel" element={<ControlPanel />} />          <Route path="management/users" element={<UserManagement/>} />
+          <Route path="/details/:detailsId" element={<DetailsPage />} />
           <Route path="StudentDetails" element={<StudentDetails/>}/>
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
