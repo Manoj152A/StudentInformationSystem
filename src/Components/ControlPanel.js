@@ -137,19 +137,6 @@ function ControlPanel() {
               </div>
             </Link>
           </div>
-          <div
-            className='tab'
-            style={{ ...tabStylesCommon, ...(location.pathname === '/management/advisor' && tabStylesHover) }}
-          >
-            <Link to='/institutions' className='tabLink'>
-              <div className='tabTitle' style={tabTitleStyles}>
-                Institutions
-              </div>
-              <div className='description' style={descriptionStyles}>
-                Institution Details
-              </div>
-            </Link>
-          </div>
         </div>
         <div className='tabsColumn' style={tabsColumnStyles}>
           <div
