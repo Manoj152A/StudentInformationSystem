@@ -9,8 +9,8 @@ import ControlPanel from "./ControlPanel";
 import Forms from "./Forms";
 import "../CSS/Homepage.css";
 import UserManagement from "./UserManagement";
-import DetailsPage from "./DetailsPage";
 import StudentDetails from "./StudentDetails";
+import CreateUser from "./CreateUser";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -112,8 +112,8 @@ const Homepage = () => {
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
           <Route path="management/users" element={<UserManagement />} />
-          <Route path="/details/:detailsId" element={<DetailsPage />} />
           <Route path="StudentDetails" element={<StudentDetails />} />
+          <Route path="CreateUser" element={<CreateUser />} />
         </Routes>
       </div>
     </div>
