@@ -12,8 +12,6 @@ function StudentDetails() {
     fontFamily: 'Arial, sans-serif',
   };
 
-  
-
   // State variables to handle user inputs and selections
   const [selectedInstitution, setSelectedInstitution] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('');

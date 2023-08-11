@@ -3,8 +3,6 @@ import Image from './background.jpeg';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/UserManagement.css';
 
-
-
 const UserManagement = () => {
     const backgroundStyle = {
       backgroundImage: `url(${Image})`,
@@ -13,8 +11,7 @@ const UserManagement = () => {
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif',
     };
-    
-  
+     
 
   const [textInput, setTextInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -57,8 +54,7 @@ const UserManagement = () => {
       // Handle any error scenarios if needed
     }
   };
-  
-  
+ 
 
   // Fetch institutions data from the API
   useEffect(() => {
