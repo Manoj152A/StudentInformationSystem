@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './App.css';
-import backgroundImage from './images.jpg';
-
+import Image from '../images/background.jpeg';
+import '../CSS/UserManagement.css';
 
 const DetailsPage = () => {
-  const containerStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    /* Add any other styles you want for the container */
-    width: '100%',
-    height: '600px',
-  };
+  const backgroundStyle = {
+        backgroundImage: `url(${Image})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        minHeight: '100vh',
+        fontFamily: 'Arial, sans-serif',
+      };
   const { detailsId } = useParams();
   const [detailsData, setDetailsData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -38,7 +36,7 @@ const DetailsPage = () => {
   }, [detailsId]);
 
   return (
-    <main style={containerStyle}>
+    <main style={backgroundStyle}>
     <div className="details-container">
       <h2 className="details-heading">Details</h2>
       {loading ? (
@@ -46,16 +44,16 @@ const DetailsPage = () => {
       ) : detailsData ? (
         <div>
           <p className="details-item">
-            <span className="details-label">Institution :</span> {detailsData.institution}
+            <span className="details-label">Institution :</span> {detailsData.institution_name}
           </p>
           <p className="details-item">
             <span className="details-label">Name        :</span> {detailsData.firstname}
           </p>
           <p className="details-item">
-            <span className="details-label">Password    :</span> {detailsData.password}
+            <span className="details-label">Password    :</span> {detailsData.user_password}
           </p>
           <p className="details-item">
-            <span className="details-label">Role        :</span> {detailsData.role}
+            <span className="details-label">Role        :</span> {detailsData.role_name}
           </p>
           <p className="details-item">
             <span className="details-label">Email       :</span> {detailsData.email}

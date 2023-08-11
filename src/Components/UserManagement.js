@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import backgroundImage from './images.jpg';
+import Image from '../images/background.jpeg';
 import { useNavigate } from 'react-router-dom';
-import './App.css';
+import '../CSS/UserManagement.css';
+import { Link } from 'react-router-dom';
 
 
 
-const MainComponent = () => {
-  const containerStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    /* Add any other styles you want for the container */
-    width: '100%',
-    height: '600px',
-  };
+const UserManagement = () => {
+    const backgroundStyle = {
+      backgroundImage: `url(${Image})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      minHeight: '100vh',
+      fontFamily: 'Arial, sans-serif',
+    };
+    
   
 
   const [textInput, setTextInput] = useState('');
@@ -64,7 +65,7 @@ const MainComponent = () => {
   useEffect(() => {
     const fetchInstitutionsData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/institutions/all');
+        const response = await fetch('http://localhost:8087/api/v1/institutions/all');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -92,7 +93,7 @@ const MainComponent = () => {
       // Use the useHistory hook to navigate programmatically.
       console.log('Data from the second API:', data);
       // Replace '/details' with the actual path of your DetailsPage component
-      navigate(`/details/${detailsValue}`);
+      navigate(`/homepage/management/users/details/${detailsValue}`);
       // Navigate to the new page
     } catch (error) {
       console.error('Error fetching details:', error);
@@ -101,7 +102,7 @@ const MainComponent = () => {
   };
 
   return (
-    <main style={containerStyle}>
+    <main style={backgroundStyle}>
       <div>
         <label htmlFor="institutionDropdown">Select Institution:</label>
         <select
@@ -129,14 +130,18 @@ const MainComponent = () => {
           <option value="name">Name</option>
         </select>
 
-        <label htmlFor="textInput" className="whatever">Enter Text to Search:</label>
-        <input
-          type="text"
-          id="textInput"
-          value={textInput}
-          onChange={handleTextInputChange}
-          placeholder="Enter text here"
-        />
+        <label htmlFor="textInput" className="whatever" style={{ width: '120px', fontSize: '14px' }}>
+  Enter Text to Search:
+  </label>
+<input
+  type="text"
+  id="textInput"
+  value={textInput}
+  onChange={handleTextInputChange}
+  placeholder="Enter text here"
+  style={{ width: '200px', fontSize: '12px', padding: '6px' }}
+/>
+
 
         <button onClick={handleSearch} className="whatever">Search</button> <button>Create</button>
       </div>
@@ -168,12 +173,10 @@ const MainComponent = () => {
                   <td>{result.status}</td>
                   {/* Replace the "Details" column value with the icon */}
                   <td className="details-cell">
-                    <button
-                      style={{ cursor: 'pointer' }}
-                      onClick={() => handleDetailsClick(result.details)}
-                    >
-                      Details
-                    </button>
+                    <Link to={`/homepage/management/users/details/${result.details}`} style={{ textDecoration: 'none' }}>
+                      <button style={{ cursor: 'pointer' }} onClick={() => handleDetailsClick(result.details)}>Details</button>
+
+                    </Link>
                   </td>
                 </tr>
               ))}
@@ -186,4 +189,4 @@ const MainComponent = () => {
   );
 };
 
-export default MainComponent;
+export default UserManagement;

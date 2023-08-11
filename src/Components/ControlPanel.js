@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import the useLocation hook
-import Image from './background.jpeg';
+import Image from '../images/background.jpeg';
+
 
 function ControlPanel() {
  const backgroundStyle = {
@@ -83,37 +84,26 @@ function ControlPanel() {
               </div>
             </Link>
           </div>
+          
           <div
-            className='tab'
-            style={{ ...tabStylesCommon, ...(location.pathname === '/details' && tabStylesHover) }}
-          >
-            <Link to='/details' className='tabLink'>
-              <div className='tabTitle' style={tabTitleStyles}>
-                Student Details
-              </div>
-              <div className='description' style={descriptionStyles}>
-                Academic info of student
-              </div>
-            </Link>
-          </div>
-          <div
-            className='tab'
-            style={{ ...tabStylesCommon, ...(location.pathname === '/instutions' && tabStylesHover) }}
-          >
-            <Link to='/instutions' className='tabLink'>
-              <div className='tabTitle' style={tabTitleStyles}>
-                Institutions
-              </div>
-              <div className='description' style={descriptionStyles}>
-                Institutions Details
-              </div>
-            </Link>
-          </div>
+  className='tab'
+  style={{ ...tabStylesCommon, ...(location.pathname === '/StudentDetails' && tabStylesHover) }}
+>
+  <Link to='/HomePage/StudentDetails' className='tabLink'>
+    <div className='tabTitle' style={tabTitleStyles}>
+      Student Details
+    </div>
+    <div className='description' style={descriptionStyles}>
+      Academic info of student
+    </div>
+  </Link>
+</div>
+
           <div
             className='tab'
             style={{ ...tabStylesCommon, ...(location.pathname === '/management/users' && tabStylesHover) }}
           >
-            <Link to='/management/users' className='tabLink'>
+            <Link to='/homepage/management/users' className='tabLink'>
               <div className='tabTitle' style={tabTitleStyles}>
                 User Management
               </div>
@@ -132,6 +122,32 @@ function ControlPanel() {
               </div>
               <div className='description' style={descriptionStyles}>
                 Role Details
+              </div>
+            </Link>
+          </div>
+          <div
+            className='tab'
+            style={{ ...tabStylesCommon, ...(location.pathname === '/management/advisor' && tabStylesHover) }}
+          >
+            <Link to='/institutions' className='tabLink'>
+              <div className='tabTitle' style={tabTitleStyles}>
+                Institutions
+              </div>
+              <div className='description' style={descriptionStyles}>
+                Institution Details
+              </div>
+            </Link>
+          </div>
+          <div
+            className='tab'
+            style={{ ...tabStylesCommon, ...(location.pathname === '/management/advisor' && tabStylesHover) }}
+          >
+            <Link to='/institutions' className='tabLink'>
+              <div className='tabTitle' style={tabTitleStyles}>
+                Institutions
+              </div>
+              <div className='description' style={descriptionStyles}>
+                Institution Details
               </div>
             </Link>
           </div>
@@ -209,3 +225,4 @@ function ControlPanel() {
 }
 
 export default ControlPanel;
+

@@ -1,3 +1,5 @@
+// Login.js
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +33,7 @@ const Login = () => {
         localStorage.setItem("jwtToken", token);
 
         setLoginMessage("Login successful!");
-        navigate('/homepage', { state: { username } });
+        navigate("/homepage", { state: { username } });
       } else {
         setLoginMessage("Invalid username or password.");
       }
@@ -46,6 +48,11 @@ const Login = () => {
     }
 
     setIsLoading(false); // Reset loading state after API response
+  };
+
+  const handleForgotPassword = () => {
+    // Navigate to the "Forgot Password" page
+    navigate("/forgot-password");
   };
 
   return (
@@ -89,7 +96,9 @@ const Login = () => {
           </button>
           {loginMessage && <p className="LoginMessage">{loginMessage}</p>}
           <p className="CreateUserLink">Create User</p>
-          <p className="ForgotPasswordLink">Forgot Password</p>
+          <p className="ForgotPasswordLink" onClick={handleForgotPassword}>
+            Forgot Password
+          </p>
         </form>
       </div>
     </div>
