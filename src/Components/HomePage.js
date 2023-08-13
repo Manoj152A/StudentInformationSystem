@@ -11,6 +11,7 @@ import "../CSS/Homepage.css";
 import UserManagement from "./UserManagement";
 import StudentDetails from "./StudentDetails";
 import CreateUser from "./CreateUser";
+import DetailsPage from "./DetailsPage";
 
 const Homepage = () => {
   const navigate = useNavigate();
