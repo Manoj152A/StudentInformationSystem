@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "../src/CSS/index.css"; // Update the import path for the index.css file
 import Login from "./Components/Login"; // Update the import path for the Login component
+import CreateUser from "./Components/CreateUser";
 import Homepage from "./Components/HomePage"; // Update the import path for the Homepage component
 import Home from "./Components/Home"; // Update the import path for the Home component
 import Forms from "./Components/Forms"; // Update the import path for the Forms component
@@ -27,6 +28,7 @@ ReactDOM.render(
           <Route path="management/users/details/:detailsId" element={<DetailsPage />} />
           <Route path="StudentDetails" element={<StudentDetails/>}/>
         </Route>
+        <Route path="/Create-User" element={<CreateUser/>}/>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         
