@@ -111,7 +111,9 @@ const Homepage = () => {
           <Route path="/" element={<Home />} />
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
+          <Route path="StudentDetails" element={<StudentDetails />} />
           <Route path="management/users" element={<UserManagement />} />
+          <Route path="management/users/details/:detailsId" element={<DetailsPage />} />
           <Route path="StudentDetails" element={<StudentDetails />} />
           <Route path="CreateUser" element={<CreateUser />} />
         </Routes>

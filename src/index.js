@@ -9,12 +9,11 @@ import Home from "./Components/Home"; // Update the import path for the Home com
 import Forms from "./Components/Forms"; // Update the import path for the Forms component
 import ControlPanel from "./Components/ControlPanel"; // Update the import path for the ControlPanel component
 import UserManagement from "./Components/UserManagement";
-
-
 // Rest of the component code remains the same
 import ForgotPassword from "./Components/ForgotPassword"; // Import the ForgotPassword component
 import ResetPassword from "./Components/ResetPassword"; // Import the ResetPassword component
 import StudentDetails from "./Components/StudentDetails";
+import DetailsPage from './Components/DetailsPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,7 +23,9 @@ ReactDOM.render(
         <Route path="/homepage" element={<Homepage />}>
           <Route index element={<Home />} />
           <Route path="forms" element={<Forms />} />
-          <Route path="controlpanel" element={<ControlPanel />} />          <Route path="management/users" element={<UserManagement/>} />
+          <Route path="controlpanel" element={<ControlPanel />} />          
+          <Route path="management/users" element={<UserManagement/>} />
+          <Route path="management/users/details/:detailsId" element={<DetailsPage />} />
           <Route path="StudentDetails" element={<StudentDetails/>}/>
         </Route>
         <Route path="/Create-User" element={<CreateUser/>}/>
@@ -36,3 +37,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
