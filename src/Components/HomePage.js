@@ -115,7 +115,6 @@ const Homepage = () => {
           <Route path="StudentDetails" element={<StudentDetails />} />
           <Route path="management/users" element={<UserManagement />} />
           <Route path="management/users/details/:detailsId" element={<DetailsPage />} />
-          <Route path="StudentDetails" element={<StudentDetails />} />
           <Route path="CreateUser" element={<CreateUser />} />
         </Routes>
       </div>
