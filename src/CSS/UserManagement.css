@@ -74,14 +74,7 @@ body {
     font-weight: bold;
   }
   
-  /* Style for the DetailsPage */
-  .details-page {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
-  }
+  
   
 
 /* Style for the table container when results are available */
@@ -150,26 +143,7 @@ body {
   }
  /* ... (previously defined styles) */
 
-/* Style for the DetailsPage container */
 
-  
-  /* Style for the DetailsPage heading */
-  .details-heading {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: burlywood;
-  }
-  
-  /* Style for the DetailsPage data items */
-  .details-item {
-    margin-bottom: 10px;
-    color: blueviolet;
-    font-weight: bold;
-    
-  }
   
   .details-label {
     font-weight: bold;

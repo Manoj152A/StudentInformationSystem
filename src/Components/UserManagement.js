@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Image from './background.jpeg';
+import Image from '../images/background.jpeg';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/UserManagement.css';
 

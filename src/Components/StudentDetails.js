@@ -8,7 +8,7 @@ function StudentDetails() {
     backgroundImage: `url(${Image})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    minHeight: '100vh',
+    minHeight: '110vh',
     fontFamily: 'Arial, sans-serif',
   };
 
@@ -85,9 +85,9 @@ function StudentDetails() {
   return (
     <div style={backgroundStyle}>
          
-      <main style={{ color: '#8B0000' }}>
+      <main style={{backgroundColor: 'transparent', color: '#8B0000',height:'500px'}}>
         <h3 style={{ textAlign: 'center', marginTop: '0.1px' }}>Student Details</h3>
-        <div style={{width: '80%', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           {/* Institutions Dropdown */}
           <label htmlFor="institutionName">Select Institution:</label>
           <select
@@ -137,13 +137,13 @@ function StudentDetails() {
             id="searchText"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            style={{ backgroundColor: 'transparent', color: 'darkmagenta', borderRadius: '3px',fontFamily: 'Roboto, sans-serif',fontWeight: 'bold' }}
+            style={{width: '200px', backgroundColor: 'transparent', color: 'darkmagenta', borderRadius: '3px',fontFamily: 'Roboto, sans-serif',fontWeight: 'bold' }}
           />
           
 
           {/* Search Button */}
           <button
-            style={{ marginLeft: '35px',  border: '100px',backgroundColor: '#34ff3e', color: '#373e37', borderRadius: '3px', transition: 'transform 0.1s ease-in-out',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
+            style={{ marginLeft: '35px',  border: '100px',backgroundColor: '#6ba3e0', color: '#fff', borderRadius: '3px', transition: 'transform 0.1s ease-in-out',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)',padding:'1px 30px' }}
             onClick={handleSearch}
             onMouseEnter={(e) => {
               e.target.style.transform = 'scale(1.1)';
@@ -155,17 +155,7 @@ function StudentDetails() {
             Search
           </button>
 
-          {/* Create Button */}
-          <Link to="/view-more">
-          <button style={{ marginLeft: '70px', border: '100px', backgroundColor: '#34ff3e', color: '#373e37', borderRadius: '3px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
-          onClick={handleSearch}
-          onMouseEnter={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = 'scale(1)';
-          }}>Create</button>
-          </Link>
+          
           </div>
         
         
@@ -177,32 +167,32 @@ function StudentDetails() {
           <table style={{ width: '80%', border: '0.8px solid darkmagenta', borderCollapse: 'collapse',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}>
             <thead>
               <tr>
-                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' }}>Institution Name</th>
-                <th style={{ padding: '8px', backgroundColor: 'transparent' , color: 'darkmagenta' }}>Name</th>
-                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' }}>Grade</th>
-                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta'}}>Username</th>
-                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta'}}>Email</th>
+                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta',textAlign:'left' }}>Institution Name</th>
+                <th style={{ padding: '8px', backgroundColor: 'transparent' , color: 'darkmagenta',textAlign:'left' }}>Name</th>
+                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' ,textAlign:'left'}}>Grade</th>
+                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta',textAlign:'left'}}>Username</th>
+                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta',textAlign:'left'}}>Email</th>
               </tr>
             </thead>
             <tbody>
               {searchResults.map((student, index) => (
                 <tr key={index}>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
+                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta',textAlign:'left' }}>
                     {student.institutionName}
                   </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
+                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta',textAlign:'left' }}>
                     {student.studentName}
                   </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta' }}>
+                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta',textAlign:'left' }}>
                     {student.grade}
                   </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative' }}>
+                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative',textAlign:'left' }}>
                     {student.username}
                     </td>
-                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative' }}>
+                  <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative',textAlign:'left' }}>
                     {student.email}
                     <Link to="/view-more">
-                    <button style={{ position: 'relative', left:'220px',border: '100px', backgroundColor: '#34ff3e', color: '#373e37', borderRadius: '3px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
+                    <button style={{position: 'absolute', right: '10px', backgroundColor: '#6ba3e0', color: '#373e37',borderRadius: '3px', boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)',padding: '5px 10px',}}
                      onClick={handleSearch}
                      onMouseEnter={(e) => {
                        e.target.style.transform = 'scale(1.1)';
