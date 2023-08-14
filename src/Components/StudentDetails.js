@@ -46,7 +46,7 @@ function StudentDetails() {
     // You can use fetch or axios to make the API call
 
     // Create the URL with query parameters based on the selected values
-    const searchUrl = new URL('http://localhost:8086/students/search');
+    const searchUrl = new URL('http://localhost:8082/students/search');
     searchUrl.searchParams.append('institutionName', selectedInstitution);
 
     // Append the filter parameter only when a filter other than the default value is selected
@@ -171,6 +171,7 @@ function StudentDetails() {
                 <th style={{ padding: '8px', backgroundColor: 'transparent' , color: 'darkmagenta',textAlign:'left' }}>Name</th>
                 <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta' ,textAlign:'left'}}>Grade</th>
                 <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta',textAlign:'left'}}>Username</th>
+                <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta',textAlign:'left'}}>StudentId</th>
                 <th style={{ padding: '8px', backgroundColor: 'transparent', color: 'darkmagenta',textAlign:'left'}}>Email</th>
               </tr>
             </thead>
@@ -188,6 +189,9 @@ function StudentDetails() {
                   </td>
                   <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative',textAlign:'left' }}>
                     {student.username}
+                    </td>
+                    <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative',textAlign:'left' }}>
+                    {student.studentId}
                     </td>
                   <td style={{ padding: '8px', color: 'darkmagenta', border: '1px solid darkmagenta', position: 'relative',textAlign:'left' }}>
                     {student.email}
