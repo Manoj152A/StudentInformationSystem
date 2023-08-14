@@ -64,7 +64,7 @@ function Enrollment() {
         
       <main style={{ backgroundColor: 'transparent',color: '#8B0000',height:'500px' }}>
         <h3 style={{ textAlign: 'center', marginTop: '0.1px' }}>Enrollment Details</h3>
-        <div style={{ display: 'flex', marginLeft: '280px' }}>
+        <div style={{ display: 'flex', marginLeft: '80px' }}>
         
 
 
@@ -75,6 +75,7 @@ function Enrollment() {
             id="searchText"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
+            placeholder='Id,username,firstname,etc..'
             style={{width: '200px', backgroundColor: 'transparent', color: 'darkmagenta', borderRadius: '3px',fontFamily: 'Roboto, sans-serif',fontWeight: 'bold' }}
           />
           
@@ -95,7 +96,7 @@ function Enrollment() {
 
           {/* Create Button */}
           <Link to="/view-more">
-          <button style={{ marginLeft: '70px', border: '100px', backgroundColor: '#6ba3e0', color: '#fff;', borderRadius: '3px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
+          <button style={{ padding:'14px',marginLeft: '70px', border: '100px', backgroundColor: '#6ba3e0', color: '#fff;', borderRadius: '3px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
           onClick={handleSearch}
           onMouseEnter={(e) => {
             e.target.style.transform = 'scale(1.1)';
@@ -113,7 +114,8 @@ function Enrollment() {
         
        {/* Conditional Rendering of Results Table */}
        {searchResults.length > 0 && (
-          <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px', color: 'darkmagenta' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }} >
+          <table style={{ width: '80%', borderCollapse: 'collapse', marginTop: '20px', color: 'darkmagenta' }}>
             <thead>
               <tr>
                 <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>Student Name</th>
@@ -134,7 +136,7 @@ function Enrollment() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         )}
         
         <div>
