@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Image from '../images/background.jpeg';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/UserManagement.css';
+import { Link } from 'react-router-dom';
+
+
 
 const UserManagement = () => {
     const backgroundStyle = {
@@ -11,6 +14,7 @@ const UserManagement = () => {
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif',
     };
+
      
 
   const [textInput, setTextInput] = useState('');
@@ -54,8 +58,9 @@ const UserManagement = () => {
       // Handle any error scenarios if needed
     }
   };
- 
 
+
+ 
   // Fetch institutions data from the API
   useEffect(() => {
     const fetchInstitutionsData = async () => {
@@ -88,7 +93,7 @@ const UserManagement = () => {
       // Use the useHistory hook to navigate programmatically.
       console.log('Data from the second API:', data);
       // Replace '/details' with the actual path of your DetailsPage component
-      navigate(`/details/${detailsValue}`);
+      navigate(`/homepage/management/users/details/${detailsValue}`);
       // Navigate to the new page
     } catch (error) {
       console.error('Error fetching details:', error);
@@ -168,12 +173,10 @@ const UserManagement = () => {
                   <td>{result.status}</td>
                   {/* Replace the "Details" column value with the icon */}
                   <td className="details-cell">
-                    <button
-                      style={{ cursor: 'pointer' }}
-                      onClick={() => handleDetailsClick(result.details)}
-                    >
-                      Details
-                    </button>
+                    <Link to={`/homepage/management/users/details/${result.details}`} style={{ textDecoration: 'none' }}>
+                      <button style={{ cursor: 'pointer' }} onClick={() => handleDetailsClick(result.details)}>Details</button>
+
+                    </Link>
                   </td>
                 </tr>
               ))}
