@@ -69,7 +69,7 @@ function Enrollment() {
 
 
           {/* Text Input */}
-          <label  htmlFor="searchText">Enter Text:</label>
+          <label  htmlFor="searchText" style ={{  textAlign: "center", marginTop: "10px"}}>Enter Text:</label>
           <input 
             type="text"
             id="searchText"
@@ -96,7 +96,7 @@ function Enrollment() {
 
           {/* Create Button */}
           <Link to="/view-more">
-          <button style={{ padding:'14px',marginLeft: '70px', border: '100px', backgroundColor: '#6ba3e0', color: '#fff;', borderRadius: '3px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
+          <button style={{ padding:'13px 20px',marginLeft: '70px', border: '100px', backgroundColor: '#6ba3e0', color: '#fff;', borderRadius: '3px',boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.2)' }}
           onClick={handleSearch}
           onMouseEnter={(e) => {
             e.target.style.transform = 'scale(1.1)';

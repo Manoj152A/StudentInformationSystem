@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Image from '../images/background.jpeg';
-import '../CSS/UserManagement.css';
+
 
 const DetailsPage = () => {
   const backgroundStyle = {
