@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  Link,
-  useLocation,
-  useNavigate,
-  Routes,
-  Route,
-} from "react-router-dom";
-import {
-  BsHouseDoor,
-  BsFileText,
-  BsGear,
-  BsPerson,
-  BsBoxArrowRight,
-} from "react-icons/bs";
+import {Link, useLocation, useNavigate, Routes, Route, } from "react-router-dom";
+import { BsHouseDoor, BsFileText, BsGear, BsPerson, BsBoxArrowRight, } from "react-icons/bs";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import logo from "../images/logo.png";
@@ -24,6 +12,10 @@ import UserManagement from "./UserManagement";
 import StudentDetails from "./StudentDetails";
 import Enrollments from "./Enrollments";
 import StudentCreation from "./StudentCreation";
+import Studentdashboard from "./Studentdashboard";
+import CreateUser from "./CreateUser";
+import DetailsPage from "./DetailsPage";
+
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -74,10 +66,6 @@ const Homepage = () => {
     }
   }, [location.state, navigate]);
 
-  // Define the handleTabClick function
-  const handleTabClick = (tabName) => {
-    console.log("Tab clicked:", tabName);
-  };
 
   return (
     <div
@@ -134,16 +122,13 @@ const Homepage = () => {
           <Route path="/" element={<Home />} />
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
-          <Route path="management/users" element={<UserManagement />} />
+          <Route path="/Enrollments" element={<Enrollments />} />
+          <Route path="/StudentCreation" element={<StudentCreation/>} />
           <Route path="StudentDetails" element={<StudentDetails />} />
-          <Route
-            path="/Enrollments"
-            element={<Enrollments navigate={navigate} />}
-          />
-          <Route
-            path="/StudentCreation"
-            element={<StudentCreation handleTabClick={handleTabClick} />}
-          />
+          <Route path="studentdetails/studentdashboard/:studentId" element={<Studentdashboard />} />       
+          <Route path="management/users" element={<UserManagement />} />
+          <Route path="management/users/details/:detailsId" element={<DetailsPage />} />
+          <Route path="CreateUser" element={<CreateUser />} />
         </Routes>
       </div>
     </div>
