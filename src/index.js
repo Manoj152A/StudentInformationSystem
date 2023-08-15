@@ -13,6 +13,12 @@ import UserManagement from "./Components/UserManagement";
 import ForgotPassword from "./Components/ForgotPassword"; // Import the ForgotPassword component
 import ResetPassword from "./Components/ResetPassword"; // Import the ResetPassword component
 import StudentDetails from "./Components/StudentDetails";
+import Enrollments from "./Components/Enrollments";
+import StudentCreation from "./Components/StudentCreation";
+import StudentEnrollment from "./Components/StudentEnrollment";
+import ParentDetails from "./Components/ParentDetails";
+import SiblingDetails from "./Components/SiblingDetails";
+import Academy from "./Components/Academy";
 import DetailsPage from './Components/DetailsPage';
 import Studentdashboard from "./Components/Studentdashboard";
 
@@ -25,11 +31,17 @@ ReactDOM.render(
           <Route index element={<Home />} />
           <Route path="forms" element={<Forms />} />
           <Route path="controlpanel" element={<ControlPanel />} />
-          <Route path="studentdetails/studentdashboard/:studentId" element={<Studentdashboard />} />       
-          <Route path="management/users" element={<UserManagement/>} />
+          <Route path="management/users" element={<UserManagement />} />
           <Route path="management/users/details/:detailsId" element={<DetailsPage />} />
-          <Route path="StudentDetails" element={<StudentDetails/>}/>
-        </Route>
+          <Route path="Enrollments" element={<Enrollments />} />
+          <Route path="StudentCreation" element={<StudentCreation />} />
+          <Route path="StudentEnrollment" element={<StudentEnrollment />} />
+          <Route path="ParentDetails" element={<ParentDetails />} />
+          <Route path="SiblingDetails" element={<SiblingDetails />} />
+          <Route path="Academy" element={<Academy />} />
+          <Route path="StudentDetails" element={<StudentDetails />} />
+          <Route path="studentdetails/studentdashboard/:studentId" element={<Studentdashboard />} />
+        </Route>              
         <Route path="/Create-User" element={<CreateUser/>}/>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />

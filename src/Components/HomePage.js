@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate, Routes, Route } from "react-router-dom";
-import { BsHouseDoor, BsFileText, BsGear, BsPerson, BsBoxArrowRight } from "react-icons/bs";
+import {Link, useLocation, useNavigate, Routes, Route, } from "react-router-dom";
+import { BsHouseDoor, BsFileText, BsGear, BsPerson, BsBoxArrowRight, } from "react-icons/bs";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import logo from "../images/logo.png";
@@ -10,6 +10,8 @@ import Forms from "./Forms";
 import "../CSS/Homepage.css";
 import UserManagement from "./UserManagement";
 import StudentDetails from "./StudentDetails";
+import Enrollments from "./Enrollments";
+import StudentCreation from "./StudentCreation";
 import Studentdashboard from "./Studentdashboard";
 import CreateUser from "./CreateUser";
 import DetailsPage from "./DetailsPage";
@@ -29,7 +31,9 @@ const Homepage = () => {
 
   const getRoleByUsername = async (username) => {
     try {
-      const response = await axios.get(`http://localhost:8089/api/get-role/${username}`);
+      const response = await axios.get(
+        `http://localhost:8089/api/get-role/${username}`
+      );
       return response.data;
     } catch (error) {
       console.error(error);
@@ -62,8 +66,12 @@ const Homepage = () => {
     }
   }, [location.state, navigate]);
 
+
   return (
-    <div className="Homepage" style={{ backgroundImage: `url('../images/background.jpeg')` }}>
+    <div
+      className="Homepage"
+      style={{ backgroundImage: `url('../images/background.jpeg')` }}
+    >
       <header className="Header">
         <div className="HeaderContent">
           <img src={logo} alt="Logo" className="Logo" />
@@ -114,6 +122,8 @@ const Homepage = () => {
           <Route path="/" element={<Home />} />
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
+          <Route path="/Enrollments" element={<Enrollments />} />
+          <Route path="/StudentCreation" element={<StudentCreation/>} />
           <Route path="StudentDetails" element={<StudentDetails />} />
           <Route path="studentdetails/studentdashboard/:studentId" element={<Studentdashboard />} />       
           <Route path="management/users" element={<UserManagement />} />
