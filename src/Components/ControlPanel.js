@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import the useLocation hook
 import Image from '../images/background.jpeg';
 
+
 function ControlPanel() {
  const backgroundStyle = {
   backgroundImage: `url(${Image})`,

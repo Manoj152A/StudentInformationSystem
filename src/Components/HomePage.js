@@ -12,6 +12,8 @@ import UserManagement from "./UserManagement";
 
 import StudentDetails from "./StudentDetails";
 import Enrollments from "./Enrollments"
+import CreateUser from "./CreateUser";
+import DetailsPage from "./DetailsPage";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -116,6 +118,9 @@ const Homepage = () => {
           
           <Route path="StudentDetails" element={<StudentDetails />} />
           <Route path="Enrollments" element={<Enrollments />} />
+          <Route path="management/users" element={<UserManagement />} />
+          <Route path="management/users/details/:detailsId" element={<DetailsPage />} />
+          <Route path="CreateUser" element={<CreateUser />} />
         </Routes>
       </div>
     </div>
