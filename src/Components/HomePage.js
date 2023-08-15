@@ -8,8 +8,8 @@ import Home from "./Home";
 import ControlPanel from "./ControlPanel";
 import Forms from "./Forms";
 import "../CSS/Homepage.css";
-import UserManagement from "./UserManagement";
 import StudentDetails from "./StudentDetails";
+import Studentdashboard from "./Studentdashboard";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -110,8 +110,9 @@ const Homepage = () => {
           <Route path="/" element={<Home />} />
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
-          <Route path="management/users" element={<UserManagement />} />
-          <Route path="StudentDetails" element={<StudentDetails />} />
+          <Route path="/studentdetails" element={<StudentDetails />} />
+          <Route path="studentdetails/studentdashboard/:studentId" element={<Studentdashboard />} />
+
         </Routes>
       </div>
     </div>
