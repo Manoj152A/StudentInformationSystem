@@ -14,8 +14,8 @@ const UserManagement = () => {
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif',
     };
-    
-  
+
+     
 
   const [textInput, setTextInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -24,6 +24,12 @@ const UserManagement = () => {
   const [selectedFilter, setSelectedFilter] = useState('');
   const [noUsersAvailable, setNoUsersAvailable] = useState(false);
   const navigate = useNavigate();
+
+
+  const handleCreate = () => {
+    // Redirect to the create user page
+    navigate('/Create-User'); // Replace with the actual path of your create user page
+  };
 
 
   const handleTextInputChange = (event) => {
@@ -58,9 +64,9 @@ const UserManagement = () => {
       // Handle any error scenarios if needed
     }
   };
-  
-  
 
+
+ 
   // Fetch institutions data from the API
   useEffect(() => {
     const fetchInstitutionsData = async () => {
@@ -143,7 +149,7 @@ const UserManagement = () => {
 />
 
 
-        <button onClick={handleSearch} className="whatever">Search</button> <button>Create</button>
+        <button onClick={handleSearch} className="whatever">Search</button> <button onClick={handleCreate}>Create</button>
       </div>
     {/* Display the search results as a table or "No users available" */}
 {noUsersAvailable ? (
