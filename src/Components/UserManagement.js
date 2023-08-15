@@ -14,8 +14,8 @@ const UserManagement = () => {
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif',
     };
-    
-  
+
+     
 
   const [textInput, setTextInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -58,9 +58,9 @@ const UserManagement = () => {
       // Handle any error scenarios if needed
     }
   };
-  
-  
 
+
+ 
   // Fetch institutions data from the API
   useEffect(() => {
     const fetchInstitutionsData = async () => {
