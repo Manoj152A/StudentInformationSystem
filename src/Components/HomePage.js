@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate, Routes, Route } from "react-router-dom";
-import { BsHouseDoor, BsFileText, BsGear, BsPerson, BsBoxArrowRight } from "react-icons/bs";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  Routes,
+  Route,
+} from "react-router-dom";
+import {
+  BsHouseDoor,
+  BsFileText,
+  BsGear,
+  BsPerson,
+  BsBoxArrowRight,
+} from "react-icons/bs";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import logo from "../images/logo.png";
@@ -9,8 +21,9 @@ import ControlPanel from "./ControlPanel";
 import Forms from "./Forms";
 import "../CSS/Homepage.css";
 import UserManagement from "./UserManagement";
-import DetailsPage from "./DetailsPage";
 import StudentDetails from "./StudentDetails";
+import Enrollments from "./Enrollments";
+import StudentCreation from "./StudentCreation";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -26,7 +39,9 @@ const Homepage = () => {
 
   const getRoleByUsername = async (username) => {
     try {
-      const response = await axios.get(`http://localhost:8089/api/get-role/${username}`);
+      const response = await axios.get(
+        `http://localhost:8089/api/get-role/${username}`
+      );
       return response.data;
     } catch (error) {
       console.error(error);
@@ -59,8 +74,16 @@ const Homepage = () => {
     }
   }, [location.state, navigate]);
 
+  // Define the handleTabClick function
+  const handleTabClick = (tabName) => {
+    console.log("Tab clicked:", tabName);
+  };
+
   return (
-    <div className="Homepage" style={{ backgroundImage: `url('../images/background.jpeg')` }}>
+    <div
+      className="Homepage"
+      style={{ backgroundImage: `url('../images/background.jpeg')` }}
+    >
       <header className="Header">
         <div className="HeaderContent">
           <img src={logo} alt="Logo" className="Logo" />
@@ -112,8 +135,15 @@ const Homepage = () => {
           <Route path="/forms" element={<Forms />} />
           <Route path="/controlpanel" element={<ControlPanel />} />
           <Route path="management/users" element={<UserManagement />} />
-          <Route path="/details/:detailsId" element={<DetailsPage />} />
           <Route path="StudentDetails" element={<StudentDetails />} />
+          <Route
+            path="/Enrollments"
+            element={<Enrollments navigate={navigate} />}
+          />
+          <Route
+            path="/StudentCreation"
+            element={<StudentCreation handleTabClick={handleTabClick} />}
+          />
         </Routes>
       </div>
     </div>
